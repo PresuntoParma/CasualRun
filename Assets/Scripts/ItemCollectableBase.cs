@@ -8,7 +8,11 @@ public class ItemCollectableBase : MonoBehaviour
 
     public string compareTag = "Player";
 
+    public GameObject graphicItem;
+
     public AudioSource audioSource;
+
+    public float timeToHide = 3f;
 
     private void Awake()
     {
@@ -25,8 +29,9 @@ public class ItemCollectableBase : MonoBehaviour
 
     protected virtual void Collect()
     {
-        Debug.Log("collect");
+        if (graphicItem != null) graphicItem.SetActive(false);
         OnCollect();
+        Invoke("HideItem", timeToHide);
     }
 
     private void HideItem()

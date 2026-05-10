@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class TouchController : MonoBehaviour
 {
     public Vector2 pastPosition;
     public float velocity = 1f;
