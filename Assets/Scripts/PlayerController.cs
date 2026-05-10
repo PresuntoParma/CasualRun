@@ -8,14 +8,17 @@ public class PlayerController : MonoBehaviour
     public float lerpSpeed = 1f;
 
     public string tagToCheckEnemy = "Enemy";
+    public string tagToCheckEndLine = "EndLine";
 
     private bool canRun;
 
     private Vector3 pos;
 
+    public GameObject endScreen;
+
     private void Start()
     {
-        canRun = true;
+
     }
 
     void Update()
@@ -35,6 +38,21 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag(tagToCheckEnemy))
         {
             canRun = false;
+            endScreen.SetActive(true);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag(tagToCheckEndLine))
+        {
+            canRun = false;
+            endScreen.SetActive(true);
+        }
+    }
+
+    public void CanRun()
+    {
+        canRun = true;
     }
 }
