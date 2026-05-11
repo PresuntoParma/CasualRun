@@ -34,7 +34,7 @@ public class ItemCollectableBase : MonoBehaviour
         Invoke("HideItem", timeToHide);
     }
 
-    private void HideItem()
+    protected void HideItem()
     {
         gameObject.SetActive(false);
     }
