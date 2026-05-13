@@ -27,6 +27,11 @@ public class PlayerController : Singleton<PlayerController>
     [Header("Coin Setup")]
     public GameObject coinCollector;
 
+    [Header("Animation")]
+    public AnimationManager animationManager;
+
+    private float baseSpeedToAnimation = 5f;
+
 
     private void Start()
     {
@@ -36,7 +41,6 @@ public class PlayerController : Singleton<PlayerController>
 
     void Update()
     {
-        print(currentSpeed);
         if (!canRun) return;
 
         pos = target.position;
@@ -53,8 +57,9 @@ public class PlayerController : Singleton<PlayerController>
         {
             if (!invincible)
             {
-                canRun = false;
-                endScreen.SetActive(true);
+                MoveBack();
+                EndGame(AnimationManager.AnimationType.dead);
+                
             }
             else
             {
@@ -63,18 +68,30 @@ public class PlayerController : Singleton<PlayerController>
         }
     }
 
+    public void EndGame(AnimationManager.AnimationType animationType = AnimationManager.AnimationType.idle)
+    {
+        animationManager.Play(animationType);
+        endScreen.SetActive(true);
+        canRun = false;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag(tagToCheckEndLine))
         {
-            canRun = false;
-            endScreen.SetActive(true);
+            EndGame();
         }
     }
 
     public void CanRun()
     {
         canRun = true;
+        animationManager.Play(AnimationManager.AnimationType.run, currentSpeed / baseSpeedToAnimation);
+    }
+
+    private void MoveBack()
+    {
+        transform.DOMoveZ(-1, 0.3f).SetRelative();
     }
 
     #region "Power Ups"
@@ -86,10 +103,20 @@ public class PlayerController : Singleton<PlayerController>
     public void PowerUpSpeedUp(float f)
     {
         currentSpeed = speed + f;
+
+        animationManager.Play(
+        AnimationManager.AnimationType.run,
+        currentSpeed / baseSpeedToAnimation
+    );
     }
     public void ResetSpeed()
     {
         currentSpeed = speed;
+
+        animationManager.Play(
+        AnimationManager.AnimationType.run,
+        currentSpeed / baseSpeedToAnimation
+    );
     }
 
     public void SetInvencible(bool b)
@@ -104,7 +131,7 @@ public class PlayerController : Singleton<PlayerController>
         //transform.position = p;
 
         transform.DOMoveY(startPosition.y + amount,
-animationDuration).SetEase(ease);//.OnComplete(ResetHeight);a
+        animationDuration).SetEase(ease);//.OnComplete(ResetHeight);a
         Invoke(nameof(ResetHeight), duration);
     }
 
