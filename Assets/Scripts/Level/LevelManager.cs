@@ -18,7 +18,7 @@ public class LevelManager : MonoBehaviour
     
     private int index;
 
-    private void Awake()
+    private void Start()
     {
         //SpawnLevel();
         CreateLevelPieces();
