@@ -32,6 +32,8 @@ public class PlayerController : Singleton<PlayerController>
 
     private float baseSpeedToAnimation = 5f;
 
+    public BounceHelper bounceHelper;
+
 
     private void Start()
     {
@@ -49,6 +51,11 @@ public class PlayerController : Singleton<PlayerController>
 
         transform.position = Vector3.Lerp(transform.position, pos, speed * Time.deltaTime);
         transform.Translate(transform.forward * Time.deltaTime * currentSpeed);
+    }
+
+    public void Bounce()
+    {
+        bounceHelper.Bounce();
     }
 
     private void OnCollisionEnter(Collision collision)

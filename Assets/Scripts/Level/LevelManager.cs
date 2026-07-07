@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using UnityEngine.Rendering;
 
 public class LevelManager : MonoBehaviour
 {
@@ -17,6 +19,11 @@ public class LevelManager : MonoBehaviour
     public GameObject currentLevel;
     
     private int index;
+
+    [Header("Animation")]
+    public float scaleDuration;
+    public float scaleTimeBetweenPieces;
+    public Ease ease;
 
     private void Start()
     {
@@ -75,6 +82,7 @@ public class LevelManager : MonoBehaviour
         }
 
         ColorManager.Instance.ChangeColorByType(currSetup.artType);
+        StartCoroutine(ScalePieceByTime());
     }
 
     private void CleanSpawnedPieces()
@@ -85,6 +93,22 @@ public class LevelManager : MonoBehaviour
         }
 
         spawnedPieces.Clear();
+    }
+
+    IEnumerator ScalePieceByTime()
+    {
+        foreach (var p in spawnedPieces)
+        {
+            p.transform.localScale = Vector3.zero;
+        }
+
+        yield return null;
+
+        for (int i = 0; i < spawnedPieces.Count; i++)
+        {
+            spawnedPieces[i].transform.DOScale(1, scaleDuration).SetEase(ease);
+            yield return new WaitForSeconds(scaleTimeBetweenPieces);
+        }
     }
 
     private void CreateLevelPiece(List<LevelPieceBase> list)

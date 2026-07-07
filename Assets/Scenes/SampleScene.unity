@@ -486,6 +486,7 @@ Transform:
   - {fileID: 1848288931}
   - {fileID: 2061394741}
   - {fileID: 1202518891}
+  - {fileID: 1235163880}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
@@ -768,6 +769,7 @@ GameObject:
   - component: {fileID: 627953519}
   - component: {fileID: 627953523}
   - component: {fileID: 627953524}
+  - component: {fileID: 627953525}
   m_Layer: 0
   m_Name: PlayerModel
   m_TagString: Player
@@ -913,6 +915,22 @@ MonoBehaviour:
   uiTextPowerUp: {fileID: 634296799}
   coinCollector: {fileID: 1343729360}
   animationManager: {fileID: 1850937596}
+  bounceHelper: {fileID: 627953525}
+--- !u!114 &627953525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627953517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bda8716aae2c5248b2fcc5e8053bf25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleDuration: 0.05
+  scaleBounce: 1.2
+  ease: 1
 --- !u!1 &634296797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1756,6 +1774,54 @@ MonoBehaviour:
     colors:
     - {r: 1, g: 0, b: 0.5715847, a: 0}
     - {r: 1, g: 0.41228497, b: 0, a: 0}
+--- !u!1 &1235163879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1235163880}
+  - component: {fileID: 1235163881}
+  m_Layer: 0
+  m_Name: CoinsAnimationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1235163880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235163879}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.88, y: -9.46, z: -11.98}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 406452923}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1235163881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235163879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d233f9759ccfbe24586ada9b302f2f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itens: []
+  scaleDuration: 0.5
+  scaleTimeBetweenCoins: 0.05
+  ease: 27
 --- !u!1 &1343729360
 GameObject:
   m_ObjectHideFlags: 0
@@ -2083,6 +2149,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4edf127af317ece4e833691ddb791ced, type: 2}
   - {fileID: 11400000, guid: 007d3c0435712664385438797e79085d, type: 2}
   currentLevel: {fileID: 0}
+  scaleDuration: 0.2
+  scaleTimeBetweenPieces: 0.05
+  ease: 25
 --- !u!1 &1850937593 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5531986718136724959, guid: 89e20167823a30d459856414377997d1,

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5186454526774044035}
   - component: {fileID: 7335641639262283878}
   - component: {fileID: 8348632755513198535}
+  - component: {fileID: 1054827205243862342}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Untagged
@@ -107,6 +108,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &1054827205243862342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900974045325726463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1781176c81e1cc4a9b1c61443f35e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 1
+  startColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2091908645706155140
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,6 +134,7 @@ GameObject:
   - component: {fileID: 959307247655425937}
   - component: {fileID: 5429093887272442009}
   - component: {fileID: 3991550316891833791}
+  - component: {fileID: 3208064860186040100}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -213,6 +229,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &3208064860186040100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091908645706155140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1781176c81e1cc4a9b1c61443f35e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 1
+  startColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &7376205438493328626
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,6 +380,7 @@ GameObject:
   - component: {fileID: 6068733467865450210}
   - component: {fileID: 4989334796263517168}
   - component: {fileID: 1378264790428160534}
+  - component: {fileID: 8921065113831596443}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -445,6 +476,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &8921065113831596443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9213462780458011099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1781176c81e1cc4a9b1c61443f35e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 1
+  startColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &722134643949166423
 PrefabInstance:
   m_ObjectHideFlags: 0

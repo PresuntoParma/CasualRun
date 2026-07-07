@@ -12,7 +12,8 @@ public class ItemCollectableCoin : ItemCollectableBase
 
     private void Start()
     {
-        //CoinsAnimationManager.Instance.RegisterCoin(this);
+        transform.localScale = Vector3.zero;
+        CoinsAnimationManager.Instance.RegisterCoin(this);
     }
 
     protected override void OnCollect()
@@ -20,7 +21,7 @@ public class ItemCollectableCoin : ItemCollectableBase
         base.OnCollect();
         collider.enabled = false;
         collect = true;
-        //PlayerController.Instance.Bounce();
+        PlayerController.Instance.Bounce();
     }
 
     protected override void Collect()
