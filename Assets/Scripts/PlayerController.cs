@@ -34,6 +34,8 @@ public class PlayerController : Singleton<PlayerController>
 
     public BounceHelper bounceHelper;
 
+    public ParticleSystem particleDestroyObstacle;
+
 
     private void Start()
     {
@@ -70,6 +72,7 @@ public class PlayerController : Singleton<PlayerController>
             }
             else
             {
+                Instantiate(particleDestroyObstacle, collision.transform.position, Quaternion.identity);
                 Destroy(collision.gameObject);
             }
         }
